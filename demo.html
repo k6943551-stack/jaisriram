@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hare Krishna Mahamantra</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; overflow:hidden;
+    display:grid; place-items:center;
+    font-family:Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(circle at 50% 45%, rgba(255,225,130,.35), transparent 24%),
+      linear-gradient(145deg,#2d0716 0%,#6f1321 45%,#c35a24 100%);
+    color:#fff8dc;
+  }
+  .stars{position:fixed;inset:0;pointer-events:none}
+  .stars i{
+    position:absolute;width:4px;height:4px;border-radius:50%;
+    background:#ffe8a3;box-shadow:0 0 12px #ffd56b;
+    animation:twinkle 2.5s infinite alternate;
+  }
+  @keyframes twinkle{from{opacity:.15;transform:scale(.6)}to{opacity:1;transform:scale(1.6)}}
+
+  .mandala{
+    position:absolute; width:min(76vw,650px); aspect-ratio:1;
+    border:1px solid rgba(255,218,120,.22); border-radius:50%;
+    box-shadow:0 0 80px rgba(255,190,70,.12) inset;
+    animation:spin 40s linear infinite;
+  }
+  .mandala:before,.mandala:after{
+    content:""; position:absolute; inset:8%; border-radius:50%;
+    border:2px dashed rgba(255,222,145,.22);
+  }
+  .mandala:after{inset:20%;border-style:dotted}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  main{
+    position:relative; z-index:2; text-align:center;
+    width:min(92vw,900px); padding:48px 24px;
+  }
+  .tilak{font-size:42px;color:#ffd778;text-shadow:0 0 18px #ff9f43;animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{50%{transform:scale(1.12);filter:brightness(1.25)}}
+  h1{font-size:clamp(22px,3vw,36px);letter-spacing:.16em;margin:8px 0 28px;color:#ffd986}
+  .mantra{
+    font-size:clamp(34px,6.3vw,76px);
+    line-height:1.25; font-weight:700;
+    text-shadow:0 3px 8px #3b0710,0 0 25px rgba(255,205,90,.35);
+  }
+  .line{display:block;opacity:0;transform:translateY(18px) scale(.97)}
+  .line.one{animation:reveal 8s ease-in-out infinite}
+  .line.two{animation:reveal 8s 2s ease-in-out infinite}
+  .line.three{animation:reveal 8s 4s ease-in-out infinite}
+  .line.four{animation:reveal 8s 6s ease-in-out infinite}
+  @keyframes reveal{
+    0%{opacity:0;transform:translateY(18px) scale(.97)}
+    12%,35%{opacity:1;transform:translateY(0) scale(1);color:#fff5c8}
+    48%,100%{opacity:.3;transform:translateY(-5px) scale(.99);color:#eebc70}
+  }
+  .lotus{margin-top:30px;font-size:34px;letter-spacing:16px;color:#ffd987;animation:float 3s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-8px)}}
+  footer{margin-top:22px;font-family:system-ui,sans-serif;font-size:13px;letter-spacing:.22em;color:#f7d8ad;opacity:.8}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="mandala"></div>
+<main>
+  <div class="tilak">॥ ॐ ॥</div>
+  <h1>हरे कृष्ण महामंत्र</h1>
+  <div class="mantra">
+    <span class="line one">हरे कृष्ण हरे कृष्ण</span>
+    <span class="line two">कृष्ण कृष्ण हरे हरे</span>
+    <span class="line three">हरे राम हरे राम</span>
+    <span class="line four">राम राम हरे हरे</span>
+  </div>
+  <div class="lotus">❀ ❀ ❀</div>
+  <footer>CHANT • REMEMBER • REJOICE</footer>
+</main>
+<script>
+const box=document.getElementById('stars');
+for(let i=0;i<42;i++){
+  const s=document.createElement('i');
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=(Math.random()*3)+'s';
+  s.style.animationDuration=(1.5+Math.random()*3)+'s';
+  box.appendChild(s);
+}
+</script>
+</body>
+</html>
